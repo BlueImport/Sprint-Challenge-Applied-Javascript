@@ -9,4 +9,16 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
-function Header() {}
+// set main query selector
+const headerContainer = document.querySelector(".header-container");
+
+
+// setting the function
+function Header(head) {
+
+// creating the elements
+    const header = document.createElement('div');
+    const date = document.createElement('span')
+    const h1 = document.createElement('h1')
+    const temp = document.createElement('span')
+}

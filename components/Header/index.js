@@ -31,4 +31,11 @@ function Header(head) {
     date.textContent = 'SMARCH 28, 2019';
     h1.textContent = 'Lambda Times';
     temp.textContent = '98°';
+
+//appends the elements 
+    header.appendChild(date);
+    header.appendChild(h1);
+    header.appendChild(temp);
+
+return header;
 }

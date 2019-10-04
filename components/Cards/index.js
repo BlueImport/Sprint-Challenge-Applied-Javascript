@@ -18,52 +18,69 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-
 //makes the query selector main div
-const cardContainer = document.querySelector('.cards-container')
+const cardsContainer = document.querySelector('.cards-container');
 
 //get the axios
-.get('https://lambda-times-backend.herokuapp.com/articles')
-.then(response => {
-    console.log(response);
-    response.data.articles.javascript.forEach(article => {
-        cardsContainer.appendChild(techCards(article))
-    });
-    response.data.articles.bootstrap.forEach(article => {
-        cardsContainer.appendChild(techCards(article))
-    });
-    response.data.articles.technology.forEach(article => {
-        cardsContainer.appendChild(techCards(article))
-    });
-    response.data.articles.jquery.forEach(article => {
-        cardsContainer.appendChild(techCards(article))
-    });
-    response.data.articles.node.forEach(article => {
-        cardsContainer.appendChild(techCards(article))
-    });
-})
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
+  .then((results) => {
+    const bootstrap = results.data.articles.bootstrap;
+    const javascript = results.data.articles.javascript;
+    const jquery = results.data.articles.jquery;
+    const node = results.data.articles.node;
+    const technology = results.data.articles.technology;
+    bootstrap.forEach((obj) => {
+        const create = CreateArticles(obj);
+        cardsContainer.appendChild(create);
+    });
+    javascript.forEach((obj) => {
+        const create = CreateArticles(obj);
+        cardsContainer.appendChild(create);
+    });
+    jquery.forEach((obj) => {
+        const create = CreateArticles(obj);
+        cardsContainer.appendChild(create);
+    });
+    node.forEach((obj) => {
+        const create = CreateArticles(obj);
+        cardsContainer.appendChild(create);
+    });
+    technology.forEach((obj) => {
+        const create = CreateArticles(obj);
+        cardsContainer.appendChild(create);
+    });
+});
 
 //creating the main function
-function theCards(data){
+function CreateArticles(obj) {
 
 //creates the elements
     const card = document.createElement('div');
-    const cardHeadline = document.createElement('div');
-    const authorImgContainer = document.createElement('div');
+    const hLine = document.createElement('div');
+    const author = document.createElement('div');
     const imgContainer = document.createElement('div');
-    const cardImg = document.createElement('img');
-    const cardAuthor = document.createElement('span');
+    const img = document.createElement('img');
+    const by = document.createElement('span');
 
 //adds class to elements
     card.classList.add('card');
-    cardHeadline.classList.add('headline'),
-    authorImgContainer.classList.add('author'),
-    imgContainer.classList.add('img-container')
+    hLine.classList.add('headline');
+    author.classList.add('author');
+    imgContainer.classList.add('img-container');
 
 //adds text content to elements
-    cardHeadline.textContent = data.headline;
-    cardImg.src = data.authorPhoto;
-    cardAuthor.textContent = data.authorName;
+    hLine.textContent = obj.headline;
+    img.src = obj.authorPhoto;
+    by.textContent = obj.authorName;
 
+//appends structure
+    card.appendChild(hLine);
+    card.appendChild(author);
+    author.appendChild(imgContainer);
+    imgContainer.appendChild(img);
+    author.appendChild(by);
+
+
+    return card;
 }

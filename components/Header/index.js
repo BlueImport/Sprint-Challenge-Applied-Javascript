@@ -39,3 +39,6 @@ function Header(head) {
 
 return header;
 }
+
+const mainHeader = document.querySelector('.header-container');
+mainHeader.appendChild(Header());

@@ -24,10 +24,37 @@ const cardContainer = document.querySelector('.cards-container')
 
 //get the axios
 .get('https://lambda-times-backend.herokuapp.com/articles')
+.then(response => {
+    console.log(response);
+    response.data.articles.javascript.forEach(article => {
+        cardsContainer.appendChild(techCards(article))
+    });
+    response.data.articles.bootstrap.forEach(article => {
+        cardsContainer.appendChild(techCards(article))
+    });
+    response.data.articles.technology.forEach(article => {
+        cardsContainer.appendChild(techCards(article))
+    });
+    response.data.articles.jquery.forEach(article => {
+        cardsContainer.appendChild(techCards(article))
+    });
+    response.data.articles.node.forEach(article => {
+        cardsContainer.appendChild(techCards(article))
+    });
+})
+
 
 //creating the main function
 function theCards(data){
 
+//creates the elements
+    const card = document.createElement('div');
+    const cardHeadline = document.createElement('div');
+    const authorImgContainer = document.createElement('div');
+    const imgContainer = document.createElement('div');
+    const cardImg = document.createElement('img');
+    const cardAuthor = document.createElement('span');
 
-    
+
+
 }

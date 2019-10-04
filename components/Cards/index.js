@@ -61,6 +61,9 @@ function theCards(data){
     authorImgContainer.classList.add('author'),
     imgContainer.classList.add('img-container')
 
-
+//adds text content to elements
+    cardHeadline.textContent = data.headline;
+    cardImg.src = data.authorPhoto;
+    cardAuthor.textContent = data.authorName;
 
 }

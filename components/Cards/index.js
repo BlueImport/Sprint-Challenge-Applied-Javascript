@@ -21,3 +21,13 @@
 
 //makes the query selector main div
 const cardContainer = document.querySelector('.cards-container')
+
+//get the axios
+.get('https://lambda-times-backend.herokuapp.com/articles')
+
+//creating the main function
+function theCards(data){
+
+
+    
+}

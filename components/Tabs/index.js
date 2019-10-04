@@ -26,6 +26,25 @@ const tabs = document.querySelector('.tabs');
 
 //sets the function
 function allTabs(data) {
-    
+
+//creates elements
+const topics = document.createElement('topics');
+const tab = document.createElement('div');
+
+//adds classes
+topics.classList.add('topics');
+tab.classList.add('tab');
+
+//adds text content
+tab.textContent = 'topic here';
+
+//appends the two together
+topics.appendChild(tab);
+
+console.log(topics);
+return topics;
 }
 
+//attaches to website
+const mainTabs = document.querySelector('.tabs');
+mainTabs.appendChild(allTabs());

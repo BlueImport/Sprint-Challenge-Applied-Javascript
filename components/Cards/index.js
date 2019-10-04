@@ -55,6 +55,12 @@ function theCards(data){
     const cardImg = document.createElement('img');
     const cardAuthor = document.createElement('span');
 
+//adds class to elements
+    card.classList.add('card');
+    cardHeadline.classList.add('headline'),
+    authorImgContainer.classList.add('author'),
+    imgContainer.classList.add('img-container')
+
 
 
 }

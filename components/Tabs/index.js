@@ -13,11 +13,19 @@
 axios
 .get("https://lambda-times-backend.herokuapp.com/topics")
 .then(function(response) {
-  // handle success
+  // Success!
   console.log(response);
 })
 .catch(function(error) {
-  // handle error
+  // Error!
   console.log(error);
 });
+
+//set main query selector
+const tabs = document.querySelector('.tabs');
+
+//sets the function
+function allTabs(data) {
+    
+}
 
